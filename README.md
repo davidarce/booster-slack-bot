@@ -8,23 +8,23 @@ responding to events and interactive buttons.
 
 ## How to use it
 
-User enters Slack Slash command, which displays a welcome message and show a modal to enter filters to find a vehicle.
+- User enters Slack Slash command `/findvehicle`
+- Then it displays a welcome message and show a modal to enter filters to find a vehicle.
+- Finally it returns a vehicle for given filters.
 
-![Slack command](images/command.png)
-
-<div style="text-align:center"><img src="images/modal.png" width="60%"></div>
-
-The Booster slack bot shows the vehicle found for given parameters
-
-![Result](images/result.png)
+![Slack command](images/findvehicle-ok.gif)
 
 ### Filters validation
 
 The Booster slack bot validates the information against [NHTSA’s data][1] 
 
-![Result](images/validation.png)
+![Filters errors](images/findvehicle-validation.gif)
+
+When the bot does not find a vehicle for given filters it returns a message with the error.
 
 ![Result](images/no-results.png)
+
+### Results, Errors and rest of the messages are published in a channel named `#booster-bot-testing`
 
 ## Running NodeJs Backend service locally
 
