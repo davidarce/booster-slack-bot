@@ -61,9 +61,7 @@ npm run start:watch
 
 ## Web Architecture
 
-
-
-
+![Architecture](images/architecture.png)
 
 See you there and thanks!
 
