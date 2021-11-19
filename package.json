@@ -1,0 +1,66 @@
+{
+  "name": "slack-chat-bot",
+  "version": "0.0.1",
+  "private": true,
+  "author": "davidarce",
+  "license": "MIT",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "node ./build/index.js",
+    "postinstall": "npm-run-all clean transpile",
+    "start:prod": "NODE_ENV=production npm-run-all build start",
+    "start:watch": "nodemon --require dotenv/config ./src/index.ts",
+    "build": "npm-run-all clean transpile",
+    "clean": "rimraf ./build",
+    "transpile": "tsc",
+    "server:clean": "rimraf ./build",
+    "test": "jest"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.18.1",
+    "cors": "^2.8.5",
+    "express": "^4.15.4",
+    "express-healthcheck": "0.1.0",
+    "helmet": "^3.21.2",
+    "http-status": "^1.4.2",
+    "morgan": "^1.10.0",
+    "npm-run-all": "^4.1.5",
+    "pg": "^8.2.1",
+    "reflect-metadata": "^0.1.10",
+    "rimraf": "^3.0.2",
+    "typescript": "~3.7.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/cors": "^2.8.6",
+    "@types/helmet": "0.0.45",
+    "@types/jest": "^24.0.0",
+    "@types/luxon": "^1.24.4",
+    "@types/node": "^12.19.16",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
+    "@typescript-eslint/parser": "^3.6.0",
+    "dotenv": "^10.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.0.5",
+    "ts-node": "^9.0.0",
+    "tslint-config-prettier": "^1.18.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix"
+    ]
+  }
+}

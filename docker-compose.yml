@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+  booster-slack-chat-bot:
+    image: booster-slack-chat-bot
+    container_name: booster-slack-chat-bot
+    build:
+      context: .
+    environment:
+      - SLACK_SIGNING_SECRET=${SLACK_SIGNING_SECRET}
+      - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
+      - SLACK_PUBLISH_RESULT_WEBHOOK_URL=${SLACK_PUBLISH_RESULT_WEBHOOK_URL}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      timeout: 10s
+      retries: 5
+      interval: 1s
+    ports: 
+      - 80:3000
